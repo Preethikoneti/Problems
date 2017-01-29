@@ -1,3 +1,5 @@
+# This one uses sets approch for tracking the target
+
 def pair_sum(lst,k):
     
     if len(lst) < 2:
