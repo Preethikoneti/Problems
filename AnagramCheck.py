@@ -1,38 +1,36 @@
 # Anagram check using dictionary approach.
 
-def anagram2(s1,s2):
+def anagram(string1,string2):
     
-    # Remove spaces and lowercase letters
-    s1 = s1.replace(' ','').lower()
-    s2 = s2.replace(' ','').lower()
+    # Convert the strings to lower case using lower() and remove the spaces using replace()
+    # Note that if you want to remove punctuations you could use .translate(None, string.punctuations)
+    string1 = string1.lower().replace(" ","")
+    string2 = string2.lower().replace(" ","")
     
-    # Edge Case to check if same number of letters
-    if len(s1) != len(s2):
+    # Check for the length of the strings, if unequal return False
+    if len(string1) != len(string2):
         return False
     
-    # Create counting dictionary (Note could use DefaultDict from Collections module)
-    count = {}
+    # Create an empty dictionary to hold character and corresponding occurence count from both dictionaries
+    c = {}
     
-    
-        
-    # Fill dictionary for first string (add counts)
-    for letter in s1:
-        if letter in count:
-            count[letter] += 1
+    # Add all characters from string 1 as keys and store corresponding occurence counts.
+    for letter in string1:
+        if letter in c.keys():
+            c[letter] += 1
         else:
-            count[letter] = 1
-            
-    # Fill dictionary for second string (subtract counts)
-    for letter in s2:
-        if letter in count:
-            count[letter] -= 1
-        else:
-            count[letter] = 1
+            c[letter] = 1
     
-    # Check that all counts are 0
-    for k in count:
-        if count[k] != 0:
+    # Follow the same process for string 2
+    # If the same letter occurs in string 1 then subtract count by one, else set it to one.
+    for letter in string2:
+        if letter in c.keys():
+            c[letter] -= 1
+        else:
+            c[letter] = 1
+                
+    #If all the count values are zero then both the strings have same letters and occurences, so return True else False
+    for key in c.keys():
+        if c[key] != 0:
             return False
-
-    # Otherwise they're anagrams
-    return True
+        return True
