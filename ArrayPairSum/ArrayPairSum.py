@@ -14,5 +14,6 @@ def pair_sum(lst,k):
     lop_m = [(i,j) for i,j in lop  if i + j == k]
     
     # Output those pairs
+    print "Total of " + str(len(lop_m)) + " Pairs found, they are as follows:"
     for i in lop_m:
         print i
