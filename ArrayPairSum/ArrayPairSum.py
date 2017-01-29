@@ -4,6 +4,9 @@ import itertools
 
 def pair_sum(lst,k):
     
+    if len(lst) < 2:
+        print "Can form a pair if there are at least two elements"
+    
     # Generate all possible pairs, note that (1,2) is same as (2,1)
     lop = list(itertools.combinations(lst, 2))
     
