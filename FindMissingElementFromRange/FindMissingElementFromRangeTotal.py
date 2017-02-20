@@ -1,6 +1,6 @@
 def MissingInteger_Total(lst,Range):
     """
-    This method takes an input list of n-1 integers and given range of 1 to n and prints out the missing integer.
+    This method takes an list of n-1 integers and given range of 1 to n and prints out the missing integer using Total sum method.
     """
     
     n = len(Range)
